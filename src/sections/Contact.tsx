@@ -27,6 +27,7 @@ export function Contact() {
     setFormState('submitting');
     
     try {
+      // Send Contact Us template
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
@@ -35,6 +36,18 @@ export function Contact() {
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      // Send Auto Reply template
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_AUTO_REPLY_TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
         },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
