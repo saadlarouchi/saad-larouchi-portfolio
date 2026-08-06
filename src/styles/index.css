@@ -1,0 +1,273 @@
+/* ─── Google Font ──────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@import 'tailwindcss';
+
+/* ─── Tailwind v4 Theme ────────────────────────────────── */
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+
+  --color-surface-50: #f8fafc;
+  --color-surface-100: #f1f5f9;
+  --color-surface-200: #e2e8f0;
+  --color-surface-300: #cbd5e1;
+  --color-surface-400: #94a3b8;
+  --color-surface-500: #64748b;
+  --color-surface-600: #475569;
+  --color-surface-700: #334155;
+  --color-surface-800: #1e293b;
+  --color-surface-900: #0f172a;
+  --color-surface-950: #020617;
+}
+
+/* ─── CSS Custom Properties ────────────────────────────── */
+:root {
+  --bg: #fdfdfd;
+  --bg-secondary: #fafafa;
+  --bg-tertiary: #f4f4f5;
+  --text-primary: #09090b;
+  --text-secondary: #52525b;
+  --text-tertiary: #a1a1aa;
+  --border: #e4e4e7;
+  --border-hover: #d4d4d8;
+  --accent: #09090b;
+  --accent-hover: #27272a;
+  --accent-light: #f4f4f5;
+  --accent-foreground: #ffffff;
+  --card-bg: #ffffff;
+  --card-border: #f4f4f5;
+  --card-shadow: 0 8px 32px -4px rgb(0 0 0 / 0.04), 0 4px 12px -2px rgb(0 0 0 / 0.02);
+  --card-shadow-hover: 0 24px 48px -12px rgb(0 0 0 / 0.08), 0 12px 24px -6px rgb(0 0 0 / 0.04);
+  --glass-bg: rgb(255 255 255 / 0.65);
+  --glass-border: rgb(255 255 255 / 0.4);
+  --nav-height: 80px;
+}
+
+.dark {
+  --bg: #0a0a0c;
+  --bg-secondary: #000000;
+  --bg-tertiary: #18181b;
+  --text-primary: #fafafa;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #71717a;
+  --border: #27272a;
+  --border-hover: #3f3f46;
+  --accent: #fafafa;
+  --accent-hover: #d4d4d8;
+  --accent-light: #27272a;
+  --accent-foreground: #0a0a0c;
+  --card-bg: #111113;
+  --card-border: #27272a;
+  --card-shadow: 0 8px 32px -4px rgb(0 0 0 / 0.3), 0 4px 12px -2px rgb(0 0 0 / 0.15);
+  --card-shadow-hover: 0 24px 48px -12px rgb(0 0 0 / 0.5), 0 12px 24px -6px rgb(0 0 0 / 0.3);
+  --glass-bg: rgb(9 9 11 / 0.65);
+  --glass-border: rgb(39 39 42 / 0.5);
+}
+
+/* ─── Base Styles ──────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Focus Styles (Accessibility) ─────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Skip Link ────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  padding: 8px 16px;
+  background: var(--accent);
+  color: white;
+  border-radius: 0 0 8px 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ─── Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-hover);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* ─── Glass Utilities ──────────────────────────────────── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px) saturate(1.5);
+  -webkit-backdrop-filter: blur(12px) saturate(1.5);
+  border: 1px solid var(--glass-border);
+}
+
+/* ─── Gradient Mesh Background ─────────────────────────── */
+.gradient-mesh {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gradient-mesh::before,
+.gradient-mesh::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.12;
+}
+
+.gradient-mesh::before {
+  width: 800px;
+  height: 800px;
+  top: -300px;
+  right: -200px;
+  background: radial-gradient(circle, var(--text-secondary) 0%, transparent 60%);
+}
+
+.gradient-mesh::after {
+  width: 700px;
+  height: 700px;
+  bottom: -200px;
+  left: -150px;
+  background: radial-gradient(circle, var(--text-tertiary) 0%, transparent 60%);
+}
+
+.dark .gradient-mesh::before {
+  opacity: 0.08;
+}
+
+.dark .gradient-mesh::after {
+  opacity: 0.06;
+}
+
+
+/* ─── Section Backgrounds ──────────────────────────────── */
+.section-alt {
+  background-color: var(--bg-secondary);
+}
+
+/* ─── Certificate Placeholder ──────────────────────────── */
+.cert-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text-tertiary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ─── Timeline ─────────────────────────────────────────── */
+.timeline-line {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--border-hover), var(--border) 80%, transparent);
+}
+
+@media (min-width: 768px) {
+  .timeline-line {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* ─── Infinite Marquee ─────────────────────────────────── */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+  }
+}
+
+/* ─── Map Pin Float ────────────────────────────────────── */
+@keyframes map-pin-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-map-pin-float {
+  animation: map-pin-float 3s ease-in-out infinite;
+}
