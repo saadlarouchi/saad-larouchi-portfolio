@@ -26,21 +26,17 @@ export function Contact() {
 
     setFormState('submitting');
     
-    console.log('Service ID:', 'service_guz9njk');
-    console.log('Template ID:', 'template_5d2078b');
-    console.log('Public Key:', '1U6u9zfW-AK5qXs9k');
-
     try {
       await emailjs.send(
-        'service_guz9njk',
-        'template_5d2078b',
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
           message: formData.message,
         },
-        '1U6u9zfW-AK5qXs9k'
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       setFormState('success');
