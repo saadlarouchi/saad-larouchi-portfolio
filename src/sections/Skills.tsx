@@ -6,6 +6,7 @@ import { skillCategories } from '@/data/skills';
 import { fadeInUp, staggerContainer } from '@/lib/motion';
 import type { Skill } from '@/types';
 import { cn } from '@/lib/cn';
+import { useTranslation } from 'react-i18next';
 
 /* ═══════════════════════════════════════════════════════════
    Icons — local SVG paths from simple-icons (zero CDN)
@@ -115,7 +116,8 @@ const railConfig = [
 /* ═══════════════════════════════════════════════════════════
    Chip — premium technology pill
    ═══════════════════════════════════════════════════════════ */
-function Chip({ skill }: { skill: Skill }) {
+function Chip({ skill, isProfessional }: { skill: Skill, isProfessional: boolean }) {
+  const { t } = useTranslation();
   return (
     <span
       className="inline-flex h-[46px] shrink-0 items-center gap-3 rounded-full border px-6 text-[15px] font-semibold select-none transition-all duration-[280ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-0.5"
@@ -140,7 +142,7 @@ function Chip({ skill }: { skill: Skill }) {
       }}
     >
       <TechIcon slug={skill.icon} />
-      {skill.name}
+      {isProfessional ? t(`skills.items.${skill.name.toLowerCase().replace(/[\s/]+/g, '_')}`) : skill.name}
     </span>
   );
 }
@@ -154,12 +156,14 @@ function InfiniteMarquee({
   duration,
   delay,
   paused,
+  isProfessional
 }: {
   items: Skill[];
   direction: 'left' | 'right';
   duration: string;
   delay: string;
   paused: boolean;
+  isProfessional: boolean;
 }) {
   const animName = direction === 'left' ? 'marquee-left' : 'marquee-right';
 
@@ -185,8 +189,8 @@ function InfiniteMarquee({
           willChange: 'transform',
         }}
       >
-        {items.map((s, i) => <Chip key={`a-${i}`} skill={s} />)}
-        {items.map((s, i) => <Chip key={`b-${i}`} skill={s} />)}
+        {items.map((s, i) => <Chip key={`a-${i}`} skill={s} isProfessional={isProfessional} />)}
+        {items.map((s, i) => <Chip key={`b-${i}`} skill={s} isProfessional={isProfessional} />)}
       </div>
     </div>
   );
@@ -205,6 +209,8 @@ function SkillRail({
   paused: boolean;
 }) {
   const cfg = railConfig[index];
+  const { t } = useTranslation();
+  const isProfessional = category.title === 'Professional';
 
   return (
     <motion.div
@@ -237,7 +243,7 @@ function SkillRail({
             className="text-[22px] font-bold tracking-tight whitespace-nowrap"
             style={{ color: 'var(--text-primary)' }}
           >
-            {category.title}
+            {t(`skills.categories.${category.title.toLowerCase()}`)}
           </h3>
         </div>
 
@@ -255,6 +261,7 @@ function SkillRail({
             duration={cfg.duration}
             delay={cfg.delay}
             paused={paused}
+            isProfessional={isProfessional}
           />
         </div>
       </div>
@@ -268,6 +275,7 @@ function SkillRail({
 export function Skills() {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const el = ref.current;
@@ -284,14 +292,13 @@ export function Skills() {
     <section
       id="skills"
       ref={ref}
-      className="relative py-24 md:py-28"
+      className="relative py-20 md:py-24"
       style={{ background: 'var(--bg-secondary)' }}
     >
       <Container>
         <SectionHeader
-          title="Skills & Expertise"
-          subtitle="Technologies and tools I use to bring ideas to life"
-          badge="What I Do"
+          title={t('skills.section_title')}
+          badge={t('skills.badge')}
         />
 
         <motion.div
@@ -299,7 +306,7 @@ export function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
-          className="flex flex-col gap-5"
+          className="flex flex-col gap-4"
         >
           {skillCategories.map((cat, i) => (
             <SkillRail key={cat.title} category={cat} index={i} paused={!visible} />

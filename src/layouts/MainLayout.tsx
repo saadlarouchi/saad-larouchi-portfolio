@@ -3,6 +3,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { ScrollProgress } from '@/components/ScrollProgress';
 import { ScrollToTop } from '@/components/ScrollToTop';
+import { Spotlight } from '@/components/ui/Spotlight';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -11,6 +12,7 @@ interface MainLayoutProps {
 export function MainLayout({ children }: MainLayoutProps) {
   return (
     <>
+      <Spotlight />
       <a href="#main" className="skip-link">
         Skip to main content
       </a>

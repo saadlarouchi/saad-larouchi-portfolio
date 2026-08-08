@@ -1,0 +1,320 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Stack",
+    "projects": "Work",
+    "certificates": "Certificates",
+    "experience": "Experience",
+    "contact": "Contact",
+    "language": "Language"
+  },
+  "hero": {
+    "badges": {
+      "digital_developer": "Digital Developer",
+      "mobile_apps": "Mobile Engineering",
+      "web_development": "Web Experiences"
+    },
+    "subtitle": "I forge digital experiences that demand attention.",
+    "buttons": {
+      "download_cv": "Download Resume",
+      "view_projects": "View My Work"
+    },
+    "stats": {
+      "years_training": "Years of Practice",
+      "featured_projects": "Products Shipped",
+      "technologies": "Technologies Mastered"
+    }
+  },
+  "about": {
+    "section_title": "About Me",
+    "badge": "Profile",
+    "p1_start": "I recently graduated in ",
+    "p1_strong": "Mobile Application Engineering",
+    "p1_end": " from CMC.",
+    "p2_start": "I design and build software that feels right. My focus is on creating fluid, scalable products using ",
+    "p2_strong": "Kotlin, Flutter, and React.",
+    "highlights": {
+      "expertise": "Expertise",
+      "expertise_val": "Mobile & Web Engineering",
+      "location": "Location",
+      "location_val": "Casablanca, Morocco",
+      "background": "Background",
+      "background_val": "Software Engineering",
+      "availability": "Status",
+      "availability_val": "Available for new opportunities"
+    }
+  },
+  "skills": {
+    "section_title": "Technical Stack",
+    "badge": "Toolkit",
+    "categories": {
+      "frontend": "Frontend",
+      "mobile": "Mobile",
+      "backend": "Backend",
+      "tools": "Tooling",
+      "professional": "Core Skills"
+    },
+    "items": {
+      "ui_ux_design": "Product Design",
+      "responsive_design": "Fluid Interfaces",
+      "clean_architecture": "System Architecture",
+      "problem_solving": "Problem Solving",
+      "teamwork": "Collaboration",
+      "communication": "Clear Communication",
+      "leadership": "Initiative"
+    }
+  },
+  "projects": {
+    "section_title": "Selected Work",
+    "badge": "Portfolio",
+    "subtitle": "A showcase of products I've engineered, designed, and shipped.",
+    "filters": {
+      "all": "All",
+      "mobile": "Mobile Apps",
+      "web": "Web Platforms",
+      "platform": "SaaS / Internal",
+      "ecommerce": "Commerce"
+    },
+    "items": {
+      "darna-clean": {
+        "description": "A seamless booking platform. We connect homeowners with vetted professionals instantly.",
+        "features": [
+          "Instant service matching",
+          "Native Jetpack Compose UI",
+          "Real-time Firebase sync",
+          "Live booking status"
+        ],
+        "case_problem": "Homeowners struggled to find reliable, verified cleaning services quickly.",
+        "case_solution": "Engineered an end-to-end native Android platform that simplifies discovery, booking, and tracking.",
+        "kf1_title": "Smart Scheduling",
+        "kf1_desc": "Automated availability management that eliminates double-booking.",
+        "kf2_title": "Verified Profiles",
+        "kf2_desc": "Transparent ratings and reviews to build instant trust.",
+        "kf3_title": "Live Tracking",
+        "kf3_desc": "Real-time state updates from request to completion.",
+        "learnings": [
+          "Mastered complex declarative UI states",
+          "Optimized real-time data flow",
+          "Designed a frictionless onboarding flow"
+        ],
+        "role": "Lead Mobile Engineer"
+      },
+      "allo-brikol": {
+        "description": "A dual-sided marketplace bridging the gap between customers and home repair experts.",
+        "features": [
+          "Advanced matching algorithm",
+          "Transparent review system",
+          "Provider dashboard",
+          "Real-time auth"
+        ],
+        "case_problem": "Urgent home repairs require immediate, trustworthy professionals—a gap in the local market.",
+        "case_solution": "Built a robust ecosystem: a fluid Flutter app for clients and a powerful React dashboard for service providers.",
+        "kf1_title": "Unified Platform",
+        "kf1_desc": "Synchronized mobile and web interfaces powered by a central API.",
+        "kf2_title": "Intelligent Routing",
+        "kf2_desc": "Matching based on precise geolocation, skills, and availability.",
+        "kf3_title": "Trust System",
+        "kf3_desc": "Immutable public ratings ensuring accountability.",
+        "learnings": [
+          "Architected scalable full-stack solutions",
+          "Bridged Flutter and React ecosystems",
+          "Handled complex geographical querying"
+        ],
+        "role": "Full-Stack Engineer"
+      },
+      "servegx": {
+        "description": "Real-time server telemetry and monitoring delivered straight to your pocket.",
+        "features": [
+          "Live metric streaming",
+          "High-performance charts",
+          "Custom threshold alerts",
+          "Historical insights"
+        ],
+        "case_problem": "Sysadmins were tied to heavy desktop dashboards for critical infrastructure monitoring.",
+        "case_solution": "Developed a native Android app that streams core metrics instantly, with intelligent push notifications.",
+        "kf1_title": "Instant Telemetry",
+        "kf1_desc": "Zero-latency monitoring of CPU, memory, and network.",
+        "kf2_title": "Smart Alerts",
+        "kf2_desc": "Context-aware push notifications for critical thresholds.",
+        "kf3_title": "Deep Analytics",
+        "kf3_desc": "Interactive visual data representing historical trends.",
+        "learnings": [
+          "Optimized high-frequency data rendering",
+          "Implemented efficient background polling",
+          "Designed data-dense mobile interfaces"
+        ],
+        "role": "Mobile Engineer"
+      },
+      "luxeldo": {
+        "description": "An ultra-premium digital storefront for luxury Swiss timepieces.",
+        "features": [
+          "High-fidelity product galleries",
+          "Lightning-fast storefront",
+          "Bespoke brand identity",
+          "Deep SEO optimization"
+        ],
+        "case_problem": "A high-end brand needed a digital presence that matched the exclusivity of their physical products.",
+        "case_solution": "Crafted a bespoke e-commerce experience focusing on minimalist design, speed, and flawless presentation.",
+        "kf1_title": "Immersive Design",
+        "kf1_desc": "A minimal, refined UI that lets the product photography shine.",
+        "kf2_title": "Brand Cohesion",
+        "kf2_desc": "Strict adherence to luxury visual guidelines.",
+        "kf3_title": "SEO Architecture",
+        "kf3_desc": "Structured data and SSR techniques for maximum discoverability.",
+        "learnings": [
+          "Translated luxury aesthetics into code",
+          "Optimized media delivery for performance",
+          "Implemented advanced e-commerce analytics"
+        ],
+        "role": "Frontend Engineer"
+      }
+    },
+    "buttons": {
+      "case_study": "Read Case Study"
+    },
+    "case_study": "Case Study",
+    "problem": "The Challenge",
+    "solution": "The Solution",
+    "key_features": "Core Features",
+    "learnings": "Key Takeaways",
+    "role": "My Role",
+    "timeline": "Timeline",
+    "technologies": "Tech Stack",
+    "status_in_progress": "In Development",
+    "status_completed": "Live"
+  },
+  "certificates": {
+    "section_title": "Certifications",
+    "badge": "Knowledge",
+    "subtitle": "Continuous learning and professional milestones.",
+    "issued": "Acquired",
+    "buttons": {
+      "view_credential": "Verify Credential"
+    },
+    "items": {
+      "ai-capabilities": {
+        "title": "AI Fluency: Capabilities & Limitations"
+      },
+      "claude-code-101": {
+        "title": "Claude Code 101"
+      }
+    }
+  },
+  "experience": {
+    "section_title": "Experience",
+    "badge": "Timeline",
+    "subtitle": "My professional journey.",
+    "types": {
+      "work": "Experience",
+      "education": "Education",
+      "certification": "Certification"
+    },
+    "status": {
+      "current": "Present",
+      "completed": "Completed",
+      "planned": "Planned"
+    },
+    "items": {
+      "cmc-diploma": {
+        "title": "Software Engineering — Mobile",
+        "organization": "Cité des Métiers et des Compétences",
+        "date": "2024 — 2026",
+        "location": "Morocco",
+        "description": "Intensive engineering program focused on modern mobile architecture.",
+        "responsibilities": [
+          "Native Android (Kotlin/Java) & Cross-platform (Flutter)",
+          "Declarative UI with Jetpack Compose",
+          "Cloud architecture with Firebase & REST",
+          "Modern web foundations"
+        ]
+      },
+      "zyne-officiel-new": {
+        "title": "Digital Marketing Manager",
+        "organization": "ZYNE OFFICIEL",
+        "date": "2023 — 2024",
+        "location": "Morocco",
+        "description": "Drove digital brand presence and growth.",
+        "responsibilities": [
+          "Scaled social channels and engagement",
+          "Directed visual content production",
+          "Executed data-driven campaigns"
+        ]
+      },
+      "luxeldo-marketing": {
+        "title": "Head of Digital Strategy",
+        "organization": "LUXELDO",
+        "date": "2022 — Present",
+        "location": "Morocco",
+        "description": "Leading digital operations for a premium commerce brand.",
+        "responsibilities": [
+          "Overseeing e-commerce technical architecture",
+          "Driving organic growth through advanced SEO",
+          "Managing high-profile digital partnerships"
+        ]
+      },
+      "bac-sciences": {
+        "title": "Baccalauréat in Physical Sciences",
+        "organization": "Lycée Ibn Rochd",
+        "date": "2022 — 2023",
+        "location": "Morocco",
+        "description": "Core sciences curriculum.",
+        "responsibilities": []
+      }
+    },
+    "filters": {
+      "all": "All",
+      "work": "Work",
+      "education": "Education",
+      "certification": "Certs"
+    }
+  },
+  "contact": {
+    "section_title": "Contact",
+    "badge": "Connect",
+    "subtitle": "Let's build something exceptional.",
+    "email": "Email",
+    "location": "Location",
+    "social": "Social",
+    "form_name": "Name",
+    "form_email": "Email",
+    "form_message": "Message",
+    "form_send": "Send Message",
+    "form_sending": "Sending...",
+    "success_title": "Message Sent",
+    "success_desc": "I'll get back to you shortly.",
+    "error_title": "Error",
+    "error_desc": "Something went wrong. Please try again.",
+    "try_again": "Retry",
+    "form": {
+      "title": "Drop a line",
+      "subtitle": "I'm available for new opportunities.",
+      "name_placeholder": "John Doe",
+      "email_placeholder": "john@example.com",
+      "subject_placeholder": "Subject",
+      "message_placeholder": "How can I help you?",
+      "send_button": "Send Request",
+      "sending": "Sending...",
+      "sent": "Sent",
+      "privacy_notice": "Your data is secure.",
+      "success_title": "Message Delivered",
+      "success_message": "Thanks for reaching out.",
+      "error_title": "Delivery Failed",
+      "error_message": "Please try again later."
+    },
+    "info_title": "Ready to scale?",
+    "info_description": "Whether you have a product idea or are looking for an engineering partner, my inbox is open.",
+    "email_label": "Email",
+    "phone_label": "Phone",
+    "location_label": "Location",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "available_work": "AVAILABLE FOR HIRE",
+    "available_desc": "Open to remote and relocation."
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "built_with": "Engineered with",
+    "by": "by"
+  }
+}

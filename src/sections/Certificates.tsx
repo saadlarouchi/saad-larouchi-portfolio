@@ -3,70 +3,39 @@ import { Container } from '@/components/ui/Container';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { Badge } from '@/components/ui/Badge';
 import { Lightbox } from '@/components/ui/Lightbox';
-import { FilterButton } from '@/components/ui/FilterButton';
 import { certificates } from '@/data/certificates';
-import { useFilter } from '@/hooks/useFilter';
 import { fadeInUp, staggerContainer } from '@/lib/motion';
-import type { Certificate, CertificateCategory } from '@/types';
+import type { Certificate } from '@/types';
 import { useState } from 'react';
-
-const categoryFilters: { label: string; value: CertificateCategory | 'all' }[] = [
-  { label: 'All', value: 'all' },
-  { label: 'Development', value: 'development' },
-  { label: 'Design', value: 'design' },
-  { label: 'Marketing', value: 'marketing' },
-];
+import { useTranslation } from 'react-i18next';
 
 export function Certificates() {
-  const { activeFilter: filter, setFilter, filteredItems: filtered } = useFilter<Certificate, CertificateCategory | 'all'>(
-    certificates,
-    'all',
-    (c) => c.category
-  );
+  const { t } = useTranslation();
   const [selectedCert, setSelectedCert] = useState<Certificate | null>(null);
 
-  return (    <section id="certificates" className="relative py-20 md:py-24" style={{ background: 'var(--bg-secondary)' }}>
+  return (
+    <section id="certificates" className="relative py-20 md:py-24" style={{ background: 'var(--bg-secondary)' }}>
       <Container>
         <SectionHeader
-          title="Certificates"
-          subtitle="Professional achievements and continuous learning milestones"
-          badge="Achievements"
+          title={t('certificates.section_title')}
+          subtitle={t('certificates.subtitle')}
+          badge={t('certificates.badge')}
         />
-
-        {/* Filters */}
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="mb-10 flex flex-wrap justify-center gap-2"
-        >
-          {categoryFilters.map((f) => (
-            <FilterButton
-              key={f.value}
-              isActive={filter === f.value}
-              onClick={() => setFilter(f.value)}
-            >
-              {f.label}
-            </FilterButton>
-          ))}
-        </motion.div>
 
         {/* Certificate Grid */}
         <motion.div
-          key={filter}
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-50px' }}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-6 md:grid-cols-2"
         >
-          {filtered.map((cert) => (
+          {certificates.map((cert) => (
             <motion.div
               key={cert.id}
               variants={fadeInUp}
-              whileHover={{ y: -2, boxShadow: 'var(--card-shadow-hover)' }}
-              className="group cursor-pointer flex flex-col overflow-hidden rounded-2xl transition-all duration-300"
+              whileHover={{ y: -4, scale: 1.005, boxShadow: 'var(--shadow)' }}
+              className="group cursor-pointer flex flex-col overflow-hidden rounded-2xl transition-all duration-500 relative"
               style={{
                 background: 'var(--card-bg)',
                 border: '1px solid var(--card-border)',
@@ -74,8 +43,11 @@ export function Certificates() {
               }}
               onClick={() => setSelectedCert(cert)}
             >
+              {/* Glow & Gradient Border */}
+              <div className="absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none rounded-2xl" style={{ boxShadow: '0 0 30px var(--accent-bg)', border: '1px solid var(--accent-border)' }} />
+              
               {/* Image / Premium Placeholder */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden" style={{ background: 'linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%)' }}>
+              <div className="relative aspect-[4/3] w-full overflow-hidden z-10" style={{ background: 'linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%)' }}>
                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(var(--text-tertiary)_1px,transparent_1px)] [background-size:16px_16px]" />
                 {cert.image ? (
                   <img src={cert.image} alt={cert.title} className="relative z-10 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" loading="lazy" />
@@ -107,14 +79,16 @@ export function Certificates() {
               <div className="flex flex-1 flex-col p-6 md:p-8">
                 <Badge variant="accent" className="mb-4 self-start">{cert.category}</Badge>
                 <h3 className="mb-2 text-lg font-bold leading-tight" style={{ color: 'var(--text-primary)' }}>
-                  {cert.title}
+                  {t(`certificates.items.${cert.id}.title`)}
                 </h3>
                 <p className="mb-4 text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>
                   {cert.organization}
                 </p>
-                <p className="mt-auto text-xs font-semibold tracking-wide uppercase" style={{ color: 'var(--text-tertiary)' }}>
-                  Issued: {cert.date}
-                </p>
+                {cert.date && (
+                  <p className="mt-auto text-xs font-semibold tracking-wide uppercase" style={{ color: 'var(--text-tertiary)' }}>
+                    {t('certificates.issued')}: {cert.date}
+                  </p>
+                )}
               </div>
             </motion.div>
           ))}
@@ -124,7 +98,7 @@ export function Certificates() {
         <Lightbox
           isOpen={!!selectedCert}
           onClose={() => setSelectedCert(null)}
-          title={selectedCert?.title}
+          title={selectedCert ? t(`certificates.items.${selectedCert.id}.title`) : undefined}
         >
           {selectedCert && (
             <div className="space-y-4">
@@ -142,9 +116,11 @@ export function Certificates() {
               </div>
               <div>
                 <Badge variant="accent" className="mb-2">{selectedCert.category}</Badge>
-                <h4 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>{selectedCert.title}</h4>
+                <h4 className="text-lg font-bold" style={{ color: 'var(--text-primary)' }}>{t(`certificates.items.${selectedCert.id}.title`)}</h4>
                 <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>{selectedCert.organization}</p>
-                <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>{selectedCert.date}</p>
+                {selectedCert.date && (
+                  <p className="text-xs" style={{ color: 'var(--text-tertiary)' }}>{selectedCert.date}</p>
+                )}
               </div>
               <div className="flex gap-2">
                 {selectedCert.credential && (
@@ -155,7 +131,7 @@ export function Certificates() {
                     className="inline-flex items-center gap-1 rounded-lg px-4 py-2 text-sm font-medium transition-transform hover:-translate-y-0.5"
                     style={{ background: 'var(--accent)', color: 'var(--accent-foreground)' }}
                   >
-                    View Credential
+                    {t('certificates.buttons.view_credential')}
                   </a>
                 )}
               </div>

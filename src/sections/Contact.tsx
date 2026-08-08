@@ -4,12 +4,15 @@ import { motion } from 'framer-motion';
 import { MapPin, Send, User, Mail, MessageSquare, Lock, Type } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { SectionHeader } from '@/components/ui/SectionHeader';
+import { Magnetic } from '@/components/ui/Magnetic';
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard';
 import { useTheme } from '@/providers/ThemeProvider';
 import { contactInfo, socialLinks } from '@/data/social';
 import { fadeInUp, staggerContainer } from '@/lib/motion';
+import { useTranslation } from 'react-i18next';
 
 export function Contact() {
+  const { t } = useTranslation();
   const { copied, copy } = useCopyToClipboard();
   const { theme } = useTheme();
   const isDark = theme === 'dark';
@@ -57,7 +60,7 @@ export function Contact() {
       setTimeout(() => setFormState('idle'), 4000);
     } catch (error: any) {
       console.error('EmailJS error:', error);
-      setErrorMessage(error?.text || error?.message || 'Unknown error occurred');
+      setErrorMessage(error?.text || error?.message || t('contact.form.error_message'));
       setFormState('error');
       setTimeout(() => {
         setFormState('idle');
@@ -69,9 +72,9 @@ export function Contact() {
   return (<section id="contact" className="relative py-20 md:py-24" style={{ background: 'var(--bg-secondary)' }}>
     <Container>
       <SectionHeader
-        title="Get in Touch"
-        subtitle="Open to internships and junior opportunities in digital development"
-        badge="Contact"
+        title={t('contact.section_title')}
+        subtitle={t('contact.subtitle')}
+        badge={t('contact.badge')}
       />
 
       <motion.div
@@ -79,16 +82,16 @@ export function Contact() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-50px' }}
-        className="grid gap-10 lg:grid-cols-2"
+        className="grid gap-8 lg:grid-cols-2"
       >
         {/* Info */}
         <motion.div variants={fadeInUp} className="space-y-8 lg:pr-8">
           <div>
             <h3 className="text-2xl font-bold tracking-tight mb-3" style={{ color: 'var(--text-primary)' }}>
-              Let's build something together.
+              {t('contact.info_title')}
             </h3>
             <p className="text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              I'm currently seeking new opportunities and my inbox is always open. Whether you have a question, a project idea, or just want to connect, I'll do my best to get back to you!
+              {t('contact.info_description')}
             </p>
           </div>
 
@@ -99,7 +102,7 @@ export function Contact() {
               style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}
             >
               <div>
-                <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-tertiary)' }}>Email</span>
+                <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-tertiary)' }}>{t('contact.email_label')}</span>
                 <p className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>{contactInfo.email}</p>
               </div>
               <button
@@ -107,7 +110,7 @@ export function Contact() {
                 className="rounded-lg px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer"
                 style={{ background: copied ? '#dcfce7' : 'var(--accent-light)', color: copied ? '#16a34a' : 'var(--accent)' }}
               >
-                {copied ? 'Copied!' : 'Copy'}
+                {copied ? t('contact.copied') : t('contact.copy')}
               </button>
             </div>
 
@@ -116,7 +119,7 @@ export function Contact() {
               className="rounded-xl p-4"
               style={{ background: 'var(--card-bg)', border: '1px solid var(--card-border)' }}
             >
-              <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-tertiary)' }}>Phone</span>
+              <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'var(--text-tertiary)' }}>{t('contact.phone_label')}</span>
               <p className="text-sm font-medium" style={{ color: 'var(--text-primary)' }}>
                 <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} style={{ color: 'var(--text-primary)' }}>
                   {contactInfo.phone}
@@ -130,7 +133,7 @@ export function Contact() {
                 className="mb-2 text-xs font-semibold uppercase tracking-wider"
                 style={{ color: 'var(--text-tertiary)' }}
               >
-                Location
+                {t('contact.location_label')}
               </span>
 
               <a
@@ -201,13 +204,13 @@ export function Contact() {
                   className="mb-[10px] inline-block rounded-full px-4 py-1.5 text-xs font-bold tracking-widest uppercase"
                   style={{ background: 'var(--accent-light)', color: 'var(--accent)' }}
                 >
-                  AVAILABLE FOR WORK
+                  {t('contact.available_work')}
                 </span>
                 <p
                   className="text-[14px] font-medium leading-[1.6]"
                   style={{ color: 'var(--text-secondary)' }}
                 >
-                  Available for on-site meetings and remote collaboration.
+                  {t('contact.available_desc')}
                 </p>
               </div>
             </div>
@@ -215,33 +218,33 @@ export function Contact() {
             {/* Social Links */}
             <div className="flex gap-4 pt-4">
               {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target={link.icon !== 'email' ? '_blank' : undefined}
-                  className="flex h-14 w-14 items-center justify-center rounded-[1.25rem] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-                  style={{ background: 'var(--bg-tertiary)', color: 'var(--text-secondary)', border: '1px solid var(--border)' }}
-                  aria-label={link.name}
-                >
-                  {link.icon === 'github' && (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
-                  )}
-                  {link.icon === 'linkedin' && (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
-                  )}
-                  {link.icon === 'instagram' && (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.359 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.344-2.235.404-1.274.055-1.649.067-4.859.067-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.757 6.162 6.162 6.162 3.405 0 6.162-2.757 6.162-6.162 0-3.402-2.757-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
-                  )}
-                  {link.icon === 'email' && (
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
-                  )}
-                </a>
+                <Magnetic key={link.name}>
+                  <a
+                    href={link.url}
+                    target={link.icon !== 'email' ? '_blank' : undefined}
+                    className="flex h-14 w-14 items-center justify-center rounded-[1.25rem] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                    style={{ background: 'var(--bg-tertiary)', color: 'var(--text-secondary)', border: '1px solid var(--border)' }}
+                    aria-label={link.name}
+                  >
+                    {link.icon === 'github' && (
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
+                    )}
+                    {link.icon === 'linkedin' && (
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" /></svg>
+                    )}
+                    {link.icon === 'instagram' && (
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.359 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.344-2.235.404-1.274.055-1.649.067-4.859.067-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.757 6.162 6.162 6.162 3.405 0 6.162-2.757 6.162-6.162 0-3.402-2.757-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>
+                    )}
+                    {link.icon === 'email' && (
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
+                    )}
+                  </a>
+                </Magnetic>
               ))}
             </div>
           </div>
         </motion.div>
 
-        {/* Form */}
         {/* Form */}
         <motion.form
           variants={fadeInUp}
@@ -261,15 +264,15 @@ export function Contact() {
 
           <div className="relative z-10 flex flex-col flex-1">
             {/* Header */}
-            <div className="mb-10 flex flex-col items-center text-center">
+            <div className="mb-8 flex flex-col items-center text-center">
               <div
                 className="mb-5 flex h-16 w-16 items-center justify-center rounded-full shadow-sm transition-transform duration-300 hover:scale-105"
                 style={{ background: 'var(--bg-tertiary)', border: '1px solid var(--border)' }}
               >
                 <MessageSquare size={24} style={{ color: 'var(--text-primary)' }} strokeWidth={1.5} />
               </div>
-              <h3 className="text-2xl font-bold tracking-tight mb-2" style={{ color: 'var(--text-primary)' }}>Send me a message</h3>
-              <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>Let's discuss your next project.</p>
+              <h3 className="text-2xl font-bold tracking-tight mb-2" style={{ color: 'var(--text-primary)' }}>{t('contact.form.title')}</h3>
+              <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>{t('contact.form.subtitle')}</p>
             </div>
 
             {/* Fields */}
@@ -284,7 +287,7 @@ export function Contact() {
                     id="name"
                     type="text"
                     required
-                    placeholder="Name"
+                    placeholder={t('contact.form.name_placeholder')}
                     value={formData.name}
                     onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
                     className="w-full rounded-xl bg-[var(--bg-tertiary)] py-4 pl-11 pr-4 text-sm font-medium text-[var(--text-primary)] outline-none border border-[var(--border)] transition-all duration-300 placeholder:text-[var(--text-tertiary)] focus:border-[var(--accent)] focus:ring-[3px] focus:ring-[var(--accent)]/15 hover:border-[var(--text-tertiary)]"
@@ -300,7 +303,7 @@ export function Contact() {
                     id="email"
                     type="email"
                     required
-                    placeholder="Email address"
+                    placeholder={t('contact.form.email_placeholder')}
                     value={formData.email}
                     onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
                     className="w-full rounded-xl bg-[var(--bg-tertiary)] py-4 pl-11 pr-4 text-sm font-medium text-[var(--text-primary)] outline-none border border-[var(--border)] transition-all duration-300 placeholder:text-[var(--text-tertiary)] focus:border-[var(--accent)] focus:ring-[3px] focus:ring-[var(--accent)]/15 hover:border-[var(--text-tertiary)]"
@@ -318,7 +321,7 @@ export function Contact() {
                   id="subject"
                   type="text"
                   required
-                  placeholder="Subject"
+                  placeholder={t('contact.form.subject_placeholder')}
                   value={formData.subject}
                   onChange={(e) => setFormData((p) => ({ ...p, subject: e.target.value }))}
                   className="w-full rounded-xl bg-[var(--bg-tertiary)] py-4 pl-11 pr-4 text-sm font-medium text-[var(--text-primary)] outline-none border border-[var(--border)] transition-all duration-300 placeholder:text-[var(--text-tertiary)] focus:border-[var(--accent)] focus:ring-[3px] focus:ring-[var(--accent)]/15 hover:border-[var(--text-tertiary)]"
@@ -331,7 +334,7 @@ export function Contact() {
                   id="message"
                   required
                   rows={5}
-                  placeholder="How can I help you?"
+                  placeholder={t('contact.form.message_placeholder')}
                   value={formData.message}
                   onChange={(e) => setFormData((p) => ({ ...p, message: e.target.value }))}
                   className="w-full resize-none rounded-xl bg-[var(--bg-tertiary)] p-5 text-sm font-medium text-[var(--text-primary)] outline-none border border-[var(--border)] transition-all duration-300 placeholder:text-[var(--text-tertiary)] focus:border-[var(--accent)] focus:ring-[3px] focus:ring-[var(--accent)]/15 hover:border-[var(--text-tertiary)]"
@@ -348,7 +351,7 @@ export function Contact() {
                 style={{ background: 'var(--text-primary)', color: 'var(--bg)' }}
               >
                 <div className="relative z-10 flex items-center gap-2">
-                  <span>{formState === 'submitting' ? 'Sending...' : formState === 'success' ? 'Sent!' : 'Send Message'}</span>
+                  <span>{formState === 'submitting' ? t('contact.form.sending') : formState === 'success' ? t('contact.form.sent') : t('contact.form.send_button')}</span>
                   {formState !== 'success' && (
                     <Send size={16} strokeWidth={2.5} className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                   )}
@@ -360,7 +363,7 @@ export function Contact() {
               <div className="mt-5 flex items-center justify-center gap-1.5 opacity-70 transition-opacity duration-300 hover:opacity-100">
                 <Lock size={12} style={{ color: 'var(--text-tertiary)' }} strokeWidth={2.5} />
                 <span className="text-[11px] font-semibold tracking-wide uppercase" style={{ color: 'var(--text-tertiary)' }}>
-                  Your information stays private
+                  {t('contact.form.privacy_notice')}
                 </span>
               </div>
             </div>
@@ -375,9 +378,9 @@ export function Contact() {
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500 shadow-[0_0_20px_-5px_rgba(16,185,129,0.5)]">
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                 </div>
-                <h4 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Message Sent</h4>
+                <h4 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>{t('contact.form.success_title')}</h4>
                 <p className="text-sm font-medium text-center px-6" style={{ color: 'var(--text-secondary)' }}>
-                  Your message has been sent successfully.
+                  {t('contact.form.success_message')}
                 </p>
               </motion.div>
             )}
@@ -392,9 +395,9 @@ export function Contact() {
                 <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-500/10 text-red-500 shadow-[0_0_20px_-5px_rgba(239,68,68,0.5)]">
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 </div>
-                <h4 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Sending Failed</h4>
+                <h4 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>{t('contact.form.error_title')}</h4>
                 <p className="text-sm font-medium text-center px-6" style={{ color: 'var(--text-secondary)' }}>
-                  {errorMessage || 'Something went wrong. Please try again later.'}
+                  {errorMessage || t('contact.form.error_message')}
                 </p>
               </motion.div>
             )}

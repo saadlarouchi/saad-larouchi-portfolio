@@ -9,32 +9,43 @@ import { useFilter } from '@/hooks/useFilter';
 import { fadeInUp, staggerContainer } from '@/lib/motion';
 import type { Project } from '@/types';
 import { cn } from '@/lib/cn';
+import { useTranslation } from 'react-i18next';
 
 const filters = ['All', 'Mobile', 'Web', 'Platform', 'E-commerce'] as const;
-
-const statusConfig = {
-  'completed': { label: 'Completed', variant: 'success' as const },
-  'in-progress': { label: 'In Progress', variant: 'warning' as const },
-  'planned': { label: 'Planned', variant: 'default' as const },
-};
 
 interface ProjectsProps {
   onOpenCaseStudy: (project: Project) => void;
 }
 
 export function Projects({ onOpenCaseStudy }: ProjectsProps) {
+  const { t } = useTranslation();
   const { activeFilter, setFilter: setActiveFilter, filteredItems: filtered } = useFilter<Project, string>(
     projects,
     'All',
     (p) => p.category
   );
 
-  return (    <section id="projects" className="relative py-20 md:py-24">
+  const statusConfig = {
+    'completed': { label: t('projects.status.completed'), variant: 'success' as const },
+    'in-progress': { label: t('projects.status.in_progress'), variant: 'warning' as const },
+    'planned': { label: t('projects.status.planned'), variant: 'default' as const },
+  };
+
+  const translatedFilters: Record<string, string> = {
+    'All': t('projects.filters.all'),
+    'Mobile': t('projects.filters.mobile'),
+    'Web': t('projects.filters.web'),
+    'Platform': t('projects.filters.platform'),
+    'E-commerce': t('projects.filters.ecommerce')
+  };
+
+  return (
+    <section id="projects" className="relative py-20 md:py-24">
       <Container>
         <SectionHeader
-          title="Featured Projects"
-          subtitle="Projects built during my training and personal development"
-          badge="My Work"
+          title={t('projects.section_title')}
+          subtitle={t('projects.subtitle')}
+          badge={t('projects.badge')}
         />
 
         {/* Filters */}
@@ -43,7 +54,7 @@ export function Projects({ onOpenCaseStudy }: ProjectsProps) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mb-10 flex flex-wrap justify-center gap-2"
+          className="mb-8 flex flex-wrap justify-center gap-2"
         >
           {filters.map((filter) => (
             <FilterButton
@@ -51,7 +62,7 @@ export function Projects({ onOpenCaseStudy }: ProjectsProps) {
               isActive={activeFilter === filter}
               onClick={() => setActiveFilter(filter)}
             >
-              {filter}
+              {translatedFilters[filter]}
             </FilterButton>
           ))}
         </motion.div>
@@ -66,14 +77,14 @@ export function Projects({ onOpenCaseStudy }: ProjectsProps) {
           className="grid gap-6 md:grid-cols-2"
         >
           {filtered.map((project, index) => {
-            const status = statusConfig[project.status];
+            const status = statusConfig[project.status as keyof typeof statusConfig];
             const isFeatured = index === 0;
             return (
               <motion.article
                 key={project.id}
                 variants={fadeInUp}
                 className={cn(
-                  "group flex overflow-hidden rounded-[2rem] transition-all duration-500",
+                  "group flex overflow-hidden rounded-[2rem] transition-all duration-500 cursor-pointer relative",
                   isFeatured ? "flex-col lg:flex-row md:col-span-2" : "flex-col"
                 )}
                 style={{
@@ -81,12 +92,15 @@ export function Projects({ onOpenCaseStudy }: ProjectsProps) {
                   border: '1px solid var(--card-border)',
                   boxShadow: 'var(--card-shadow)',
                 }}
-                whileHover={{ y: -2, boxShadow: 'var(--card-shadow-hover)' }}
+                whileHover={{ y: -4, scale: 1.005, boxShadow: 'var(--shadow)' }}
               >
+                {/* Glow & Gradient Border */}
+                <div className="absolute inset-0 z-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none rounded-[2rem]" style={{ boxShadow: '0 0 30px var(--accent-bg)', border: '1px solid var(--accent-border)' }} />
+                
                 {/* Premium Placeholder */}
                 <div 
                   className={cn(
-                    "relative overflow-hidden border-b lg:border-b-0 lg:border-r border-[var(--border)]",
+                    "relative overflow-hidden border-b lg:border-b-0 lg:border-r border-[var(--border)] z-10",
                     isFeatured ? "w-full lg:w-[55%] aspect-[4/3] lg:aspect-auto" : "w-full aspect-[4/3]"
                   )} 
                   style={{ background: 'var(--bg-tertiary)' }}
@@ -101,8 +115,19 @@ export function Projects({ onOpenCaseStudy }: ProjectsProps) {
                       <div className="h-2.5 w-2.5 rounded-full" style={{ background: '#22c55e' }} />
                     </div>
                     {/* Mockup Content Area */}
-                    <div className="flex h-full items-center justify-center bg-[var(--bg-secondary)] pb-8">
-                       <span className="text-xs font-bold tracking-widest uppercase" style={{ color: 'var(--text-tertiary)' }}>{project.title} Preview</span>
+                    <div className="flex h-full items-center justify-center bg-[var(--bg-secondary)] relative overflow-hidden pb-8">
+                      {project.image ? (
+                        <img 
+                          src={project.image} 
+                          alt={project.title} 
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" 
+                          loading="lazy" 
+                        />
+                      ) : (
+                        <span className="text-xs font-bold tracking-widest uppercase relative z-10" style={{ color: 'var(--text-tertiary)' }}>
+                          {project.title} Preview
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -116,7 +141,7 @@ export function Projects({ onOpenCaseStudy }: ProjectsProps) {
                   </div>
 
                   <p className={cn("mb-8 leading-relaxed", isFeatured ? "text-lg" : "text-base")} style={{ color: 'var(--text-secondary)' }}>
-                    {project.description}
+                    {t(`projects.items.${project.id}.description`)}
                   </p>
 
                   <div className="mb-8 flex flex-wrap gap-2">
@@ -139,7 +164,7 @@ export function Projects({ onOpenCaseStudy }: ProjectsProps) {
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                       }
                     >
-                      Case Study
+                      {t('projects.buttons.case_study')}
                     </Button>
                     {project.github && (
                       <Button variant="secondary" href={project.github} target="_blank" rel="noopener noreferrer">

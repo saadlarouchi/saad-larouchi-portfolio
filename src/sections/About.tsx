@@ -2,18 +2,22 @@ import { motion } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { fadeInUp, staggerContainer } from '@/lib/motion';
-
-const highlights = [
-  { label: 'Expertise', value: 'Mobile Development (Android, Flutter, Kotlin)' },
-  { label: 'Location', value: 'Berrechid, Casablanca-Settat, Morocco' },
-  { label: 'Background', value: 'CMC 2026 Graduate, pursuing Bachelor\'s degree' },
-  { label: 'Availability', value: 'Open to pre-employment internships and junior opportunities' },
-];
+import { useTranslation, Trans } from 'react-i18next';
 
 export function About() {
-  return (    <section id="about" className="relative py-20 md:py-24">
+  const { t } = useTranslation();
+
+  const highlights = [
+    { label: t('about.highlights.expertise'), value: t('about.highlights.expertise_val') },
+    { label: t('about.highlights.location'), value: t('about.highlights.location_val') },
+    { label: t('about.highlights.background'), value: t('about.highlights.background_val') },
+    { label: t('about.highlights.availability'), value: t('about.highlights.availability_val') },
+  ];
+
+  return (
+    <section id="about" className="relative py-20 md:py-24">
       <Container>
-        <SectionHeader title="About Me" badge="Who I Am" />
+        <SectionHeader title={t('about.section_title')} badge={t('about.badge')} />
 
         <motion.div
           variants={staggerContainer}
@@ -28,19 +32,23 @@ export function About() {
             style={{ color: 'var(--text-secondary)' }}
           >
             <p>
-              I recently graduated in{' '}
-              <strong style={{ color: 'var(--text-primary)' }}>Digital Development (Mobile Applications)</strong>{' '}
-              from the Cité des Métiers et des Compétences.
+              <Trans i18nKey="about.p1">
+                {t('about.p1_start')}
+                <strong style={{ color: 'var(--text-primary)' }}>{t('about.p1_strong')}</strong>
+                {t('about.p1_end')}
+              </Trans>
             </p>
             <p>
-              Before focusing on software development, I spent a few years working in digital marketing. That experience taught me how to bridge the gap between technical execution and actual user needs. Today, I enjoy building clean and reliable mobile and web applications, primarily using{' '}
-              <strong style={{ color: 'var(--text-primary)' }}>Kotlin, Flutter, and React.</strong>
+              <Trans i18nKey="about.p2">
+                {t('about.p2_start')}
+                <strong style={{ color: 'var(--text-primary)' }}>{t('about.p2_strong')}</strong>
+              </Trans>
             </p>
           </motion.div>
 
           <motion.div
             variants={fadeInUp}
-            className="mt-12 grid gap-4 sm:grid-cols-2"
+            className="mt-10 grid gap-4 sm:grid-cols-2"
           >
             {highlights.map((item) => (
               <div

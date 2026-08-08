@@ -64,7 +64,7 @@ export interface Project {
 }
 
 // ─── Certificates ───────────────────────────────────────
-export type CertificateCategory = 'development' | 'design' | 'marketing' | 'other';
+export type CertificateCategory = 'development' | 'design' | 'marketing' | 'AI' | 'other';
 
 export interface Certificate {
   id: string;

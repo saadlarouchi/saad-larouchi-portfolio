@@ -30,6 +30,41 @@
   }
 }
 
+[dir="rtl"] {
+  --sans: 'IBM Plex Sans Arabic', system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: 'IBM Plex Sans Arabic', system-ui, 'Segoe UI', Roboto, sans-serif;
+}
+
+[dir="rtl"] h1 {
+  font-size: 90%;
+  margin: 24px 0;
+}
+
+[dir="rtl"] h2 {
+  font-size: 95%;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] p,
+[dir="rtl"] span,
+[dir="rtl"] a,
+[dir="rtl"] div {
+  line-height: 1.85;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: inherit;
+}
+
+[dir="rtl"] .tracking-widest,
+[dir="rtl"] .tracking-tight,
+[dir="rtl"] .tracking-tighter {
+  letter-spacing: 0 !important;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;
@@ -108,4 +143,13 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+@keyframes languageFade {
+  0% { opacity: 0; filter: blur(4px); transform: translateY(4px); }
+  100% { opacity: 1; filter: blur(0px); transform: translateY(0); }
+}
+
+.language-transition {
+  animation: languageFade 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

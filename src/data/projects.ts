@@ -15,6 +15,7 @@ export const projects: Project[] = [
     technologies: ['Kotlin', 'Jetpack Compose', 'Firebase', 'SQLite'],
     status: 'in-progress',
     category: 'mobile',
+    image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop',
     caseStudy: {
       problem:
         'Finding reliable home cleaning services in Morocco usually relies on word-of-mouth, with no standard way to verify quality or book easily.',
@@ -60,6 +61,7 @@ export const projects: Project[] = [
     technologies: ['React', 'Vite', 'TypeScript', 'Tailwind CSS', 'Laravel API', 'Flutter'],
     status: 'in-progress',
     category: 'web',
+    image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2074&auto=format&fit=crop',
     caseStudy: {
       problem:
         'Homeowners often struggle to find trustworthy service providers for repairs without reliable referrals.',
@@ -105,6 +107,7 @@ export const projects: Project[] = [
     technologies: ['Java', 'Kotlin', 'Android SDK'],
     status: 'in-progress',
     category: 'platform',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
     caseStudy: {
       problem:
         'System administrators need a lightweight way to check server metrics on the go without opening heavy desktop dashboards.',
@@ -150,6 +153,7 @@ export const projects: Project[] = [
     technologies: ['HTML', 'CSS', 'JavaScript', 'E-commerce'],
     status: 'completed',
     category: 'ecommerce',
+    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop',
     caseStudy: {
       problem:
         'The brand needed an online presence that matched the premium quality of their physical products while reaching a wider audience.',

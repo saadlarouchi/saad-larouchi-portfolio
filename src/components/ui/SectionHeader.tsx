@@ -19,10 +19,10 @@ export function SectionHeader({ title, subtitle, badge, className, align = 'cent
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-50px' }}
-      className={cn('mb-8 md:mb-12', isCenter ? 'text-center' : 'text-left', className)}
+      className={cn('mb-8 md:mb-10', isCenter ? 'text-center' : 'text-left', className)}
     >
       {badge && (
-        <span className="mb-4 inline-block rounded-full px-4 py-1.5 text-xs font-bold tracking-widest uppercase" style={{ background: 'var(--accent-light)', color: 'var(--accent)' }}>
+        <span className="mb-3 inline-block rounded-full px-4 py-1.5 text-xs font-bold tracking-widest uppercase" style={{ background: 'var(--accent-light)', color: 'var(--accent)' }}>
           {badge}
         </span>
       )}
@@ -34,7 +34,7 @@ export function SectionHeader({ title, subtitle, badge, className, align = 'cent
       </h2>
       {subtitle && (
         <p
-          className={cn('mt-6 max-w-2xl text-lg lg:text-xl', isCenter && 'mx-auto')}
+          className={cn('mt-4 max-w-2xl text-lg lg:text-xl', isCenter && 'mx-auto')}
           style={{ color: 'var(--text-secondary)' }}
         >
           {subtitle}
