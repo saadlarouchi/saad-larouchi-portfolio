@@ -8,7 +8,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/saad-larouchi/',
+    url: 'https://www.linkedin.com/in/saad-larouchi',
     icon: 'linkedin',
   },
   {
