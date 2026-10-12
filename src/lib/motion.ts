@@ -1,6 +1,6 @@
 import type { Variants } from 'framer-motion';
 
-const ELEGANT_EASE = [0.16, 1, 0.3, 1]; // Premium cubic-bezier
+const ELEGANT_EASE = [0.16, 1, 0.3, 1] as const; // Premium cubic-bezier
 const DURATION = 0.8;
 
 export const fadeIn: Variants = {
