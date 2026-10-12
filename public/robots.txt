@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saad-larouchi.vercel.app/sitemap.xml
