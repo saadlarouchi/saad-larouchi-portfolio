@@ -41,15 +41,79 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Saad Larouchi",
-      "url": "https://saad-larouchi.vercel.app/",
-      "image": "https://saad-larouchi.vercel.app/profile.jpg",
-      "jobTitle": "Mobile & Web Developer",
-      "description": "Digital Developer specializing in mobile applications and web development. Kotlin, React, TypeScript, Flutter. Based in Morocco.",
-      "sameAs": [
-        "https://github.com/saadlarouchi",
-        "https://www.linkedin.com/in/saad-larouchi"
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://saad-larouchi.vercel.app/#person",
+          "name": "Saad Larouchi",
+          "alternateName": "سعد العروشي",
+          "url": "https://saad-larouchi.vercel.app/",
+          "image": "https://saad-larouchi.vercel.app/profile.jpg",
+          "jobTitle": "Mobile & Web Developer",
+          "description": "Mobile and Web Developer based in Morocco specializing in native Android apps with Kotlin and cross-platform web applications with React, TypeScript, and Flutter.",
+          "email": "mailto:saadlarouchi0@gmail.com",
+          "telephone": "+212 670 950 068",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Berrechid",
+            "addressRegion": "Casablanca-Settat",
+            "addressCountry": "MA"
+          },
+          "alumniOf": [
+            {
+              "@type": "EducationalOrganization",
+              "name": "Cité des Métiers et des Compétences",
+              "location": "Casablanca-Settat, Morocco"
+            },
+            {
+              "@type": "EducationalOrganization",
+              "name": "Lycée Ibn Rochd Berrechid",
+              "location": "Berrechid, Morocco"
+            }
+          ],
+          "knowsAbout": [
+            "Android Development",
+            "Kotlin",
+            "Jetpack Compose",
+            "Flutter",
+            "React",
+            "TypeScript",
+            "JavaScript",
+            "Laravel",
+            "Firebase",
+            "SQLite"
+          ],
+          "sameAs": [
+            "https://github.com/saadlarouchi",
+            "https://www.linkedin.com/in/saad-larouchi",
+            "https://www.instagram.com/saad.larouchi/"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://saad-larouchi.vercel.app/#website",
+          "url": "https://saad-larouchi.vercel.app/",
+          "name": "Saad Larouchi Portfolio",
+          "publisher": {
+            "@id": "https://saad-larouchi.vercel.app/#person"
+          },
+          "inLanguage": ["en", "fr", "ar"]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://saad-larouchi.vercel.app/#webpage",
+          "url": "https://saad-larouchi.vercel.app/",
+          "name": "Saad Larouchi — Mobile & Web Developer",
+          "isPartOf": {
+            "@id": "https://saad-larouchi.vercel.app/#website"
+          },
+          "about": {
+            "@id": "https://saad-larouchi.vercel.app/#person"
+          },
+          "mainEntity": {
+            "@id": "https://saad-larouchi.vercel.app/#person"
+          }
+        }
       ]
     }
     </script>

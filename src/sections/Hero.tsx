@@ -67,7 +67,7 @@ export function Hero() {
               <Magnetic>
                 <Button
                   size="lg"
-                  href="/cv.pdf"
+                  href="/Saad-Larouchi-CV.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   icon={

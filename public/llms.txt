@@ -1,0 +1,33 @@
+# Saad Larouchi
+
+> Mobile and Web Developer based in Casablanca-Settat, Morocco. Specializing in native Android applications with Kotlin and cross-platform web applications with React, TypeScript, and Flutter.
+
+## Identity & Contact
+- Full Name: Saad Larouchi
+- Arabic Name: سعد العروشي
+- Title: Mobile & Web Developer
+- Location: Berrechid, Casablanca-Settat, Morocco
+- Website: https://saad-larouchi.vercel.app/
+- GitHub: https://github.com/saadlarouchi
+- LinkedIn: https://www.linkedin.com/in/saad-larouchi
+- Email: saadlarouchi0@gmail.com
+
+## Technical Stack
+- Mobile: Kotlin, Jetpack Compose, Android SDK, Flutter, Dart, Java
+- Frontend: React, Next.js, TypeScript, JavaScript, Tailwind CSS, HTML5, CSS3
+- Backend & Storage: Laravel, Node.js, Firebase, SQLite, MySQL, REST APIs
+- Tools: Git, GitHub, VS Code, Figma, Postman, Docker
+
+## Portfolio Projects
+- Darna Clean: Android mobile application connecting homeowners with vetted home service providers (Kotlin, Jetpack Compose, Firebase, SQLite).
+- Allo Brikol: Dual-platform marketplace connecting customers with local repair experts (Flutter, React, TypeScript, Tailwind CSS, Laravel API).
+- ServeGX: Mobile server telemetry and monitoring application displaying real-time metrics (Kotlin, Java, Android SDK).
+- Luxeldo: High-performance e-commerce storefront for Swiss timepieces (HTML, CSS, JavaScript).
+
+## Education
+- Specialized Technician Diploma in Digital Development (Mobile Applications): Cité des Métiers et des Compétences, Casablanca-Settat, Morocco (2024–2026).
+- Baccalauréat Sciences Physiques: Lycée Ibn Rochd, Berrechid, Morocco (2022–2023).
+
+## Certifications
+- Claude Code 101: Anthropic (May 8, 2026)
+- AI Fluency: AI Capabilities & Limitations: Anthropic
