@@ -98,7 +98,9 @@
           "Optimisation du flux de données en temps réel",
           "Conception d'un parcours d'intégration sans friction"
         ],
-        "role": "Lead Mobile Engineer"
+        "role": "Lead Mobile Engineer",
+        "seo_title": "Darna Clean — Étude de Cas Application Android | Saad Larouchi",
+        "seo_description": "Étude de cas Darna Clean : application mobile Android de réservation reliant particuliers et professionnels, conçue avec Kotlin, Jetpack Compose, Firebase et SQLite."
       },
       "allo-brikol": {
         "description": "Une marketplace bilatérale comblant le fossé entre les clients et les experts en réparation.",
@@ -121,7 +123,9 @@
           "Création de ponts entre les écosystèmes Flutter et React",
           "Gestion de requêtes géographiques complexes"
         ],
-        "role": "Ingénieur Full-Stack"
+        "role": "Ingénieur Full-Stack",
+        "seo_title": "Allo Brikol — Plateforme de Dépannage à Domicile | Saad Larouchi",
+        "seo_description": "Étude de cas Allo Brikol : marketplace bilatérale reliant particuliers et artisans, développée avec Flutter, React, TypeScript et Laravel API."
       },
       "servegx": {
         "description": "Télémétrie et supervision serveur en temps réel, directement dans votre poche.",
@@ -144,7 +148,9 @@
           "Implémentation de processus d'arrière-plan efficaces",
           "Conception d'interfaces mobiles denses en données"
         ],
-        "role": "Ingénieur Mobile"
+        "role": "Ingénieur Mobile",
+        "seo_title": "ServeGX — Monitoring d'Infrastructure Mobile | Saad Larouchi",
+        "seo_description": "Étude de cas ServeGX : application Android de télémétrie et surveillance de serveurs en temps réel, conçue avec Kotlin, Java et Android SDK."
       },
       "luxeldo": {
         "description": "Une vitrine digitale ultra-premium pour l'horlogerie de luxe suisse.",
@@ -167,11 +173,14 @@
           "Optimisation de la diffusion des médias pour les performances",
           "Mise en place d'analyses e-commerce avancées"
         ],
-        "role": "Ingénieur Frontend"
+        "role": "Ingénieur Frontend",
+        "seo_title": "Luxeldo — Boutique E-Commerce Horlogerie Suisse | Saad Larouchi",
+        "seo_description": "Étude de cas Luxeldo : vitrine e-commerce pour montres suisses de luxe, conçue et développée avec HTML, CSS, JavaScript et architecture SEO."
       }
     },
     "buttons": {
-      "case_study": "Étude de Cas"
+      "case_study": "Étude de Cas",
+      "back_to_projects": "Retour aux projets"
     },
     "case_study": "Étude de Cas",
     "problem": "Le Défi",

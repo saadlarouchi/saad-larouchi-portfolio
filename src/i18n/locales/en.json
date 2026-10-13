@@ -98,7 +98,9 @@
           "Optimized real-time data flow",
           "Designed a frictionless onboarding flow"
         ],
-        "role": "Lead Mobile Engineer"
+        "role": "Lead Mobile Engineer",
+        "seo_title": "Darna Clean — Android Booking App Case Study | Saad Larouchi",
+        "seo_description": "Case study of Darna Clean: a native Android booking application connecting homeowners with cleaning professionals, built with Kotlin, Jetpack Compose, Firebase, and SQLite."
       },
       "allo-brikol": {
         "description": "A dual-sided marketplace bridging the gap between customers and home repair experts.",
@@ -121,7 +123,9 @@
           "Bridged Flutter and React ecosystems",
           "Handled complex geographical querying"
         ],
-        "role": "Full-Stack Engineer"
+        "role": "Full-Stack Engineer",
+        "seo_title": "Allo Brikol — Home Repair Marketplace Platform | Saad Larouchi",
+        "seo_description": "Case study of Allo Brikol: a dual-platform marketplace connecting customers with repair providers, engineered with Flutter, React, TypeScript, and Laravel API."
       },
       "servegx": {
         "description": "Real-time server telemetry and monitoring delivered straight to your pocket.",
@@ -144,7 +148,9 @@
           "Implemented efficient background polling",
           "Designed data-dense mobile interfaces"
         ],
-        "role": "Mobile Engineer"
+        "role": "Mobile Engineer",
+        "seo_title": "ServeGX — Mobile Server Monitoring App Case Study | Saad Larouchi",
+        "seo_description": "Case study of ServeGX: an Android server telemetry and infrastructure monitoring application with live metrics, developed with Kotlin, Java, and Android SDK."
       },
       "luxeldo": {
         "description": "An ultra-premium digital storefront for luxury Swiss timepieces.",
@@ -167,11 +173,14 @@
           "Optimized media delivery for performance",
           "Implemented advanced e-commerce analytics"
         ],
-        "role": "Frontend Engineer"
+        "role": "Frontend Engineer",
+        "seo_title": "Luxeldo — Luxury Swiss Watch E-Commerce Storefront | Saad Larouchi",
+        "seo_description": "Case study of Luxeldo: a luxury Swiss timepiece e-commerce digital storefront designed and developed with HTML, CSS, JavaScript, and SEO architecture."
       }
     },
     "buttons": {
-      "case_study": "Read Case Study"
+      "case_study": "Read Case Study",
+      "back_to_projects": "Back to Projects"
     },
     "case_study": "Case Study",
     "problem": "The Challenge",

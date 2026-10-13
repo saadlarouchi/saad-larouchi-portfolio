@@ -16,7 +16,7 @@ const languages = [
   { code: 'ar', label: 'العربية', flag: '🇸🇦' },
 ];
 
-function LanguageSwitcher() {
+export function LanguageSwitcher() {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
