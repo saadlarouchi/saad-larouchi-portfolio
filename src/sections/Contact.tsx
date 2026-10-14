@@ -107,7 +107,7 @@ export function Contact() {
               </div>
               <button
                 onClick={() => copy(contactInfo.email)}
-                className="rounded-lg px-3 py-1.5 text-xs font-medium transition-colors cursor-pointer"
+                className="rounded-lg px-3 py-1.5 text-xs font-medium transition-all duration-200 hover:scale-105 active:scale-95 transform-gpu cursor-pointer"
                 style={{ background: copied ? '#dcfce7' : 'var(--accent-light)', color: copied ? '#16a34a' : 'var(--accent)' }}
               >
                 {copied ? t('contact.copied') : t('contact.copy')}
@@ -222,7 +222,7 @@ export function Contact() {
                   <a
                     href={link.url}
                     target={link.icon !== 'email' ? '_blank' : undefined}
-                    className="flex h-14 w-14 items-center justify-center rounded-[1.25rem] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                    className="flex h-14 w-14 items-center justify-center rounded-[1.25rem] transition-all duration-300 hover:scale-105 hover:shadow-lg active:scale-95 transform-gpu"
                     style={{ background: 'var(--bg-tertiary)', color: 'var(--text-secondary)', border: '1px solid var(--border)' }}
                     aria-label={link.name}
                   >
@@ -347,7 +347,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={formState === 'submitting' || formState === 'success'}
-                className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-[1.25rem] py-4 text-sm font-bold shadow-[0_8px_20px_-8px_var(--text-primary)] transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_12px_25px_-8px_var(--text-primary)] active:translate-y-[1px] disabled:opacity-70 disabled:hover:translate-y-0"
+                className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-[1.25rem] py-4 text-sm font-bold shadow-[0_8px_20px_-8px_var(--text-primary)] transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_12px_25px_-8px_var(--text-primary)] active:scale-[0.99] disabled:opacity-70 disabled:hover:scale-100 transform-gpu"
                 style={{ background: 'var(--text-primary)', color: 'var(--bg)' }}
               >
                 <div className="relative z-10 flex items-center gap-2">

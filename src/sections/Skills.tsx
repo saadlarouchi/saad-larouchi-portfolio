@@ -120,7 +120,7 @@ function Chip({ skill, isProfessional }: { skill: Skill, isProfessional: boolean
   const { t } = useTranslation();
   return (
     <span
-      className="inline-flex h-[46px] shrink-0 items-center gap-3 rounded-full border px-6 text-[15px] font-semibold select-none transition-all duration-[280ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-0.5"
+      className="inline-flex h-[46px] shrink-0 items-center gap-3 rounded-full border px-6 text-[15px] font-semibold select-none transition-all duration-[280ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:scale-[1.03] active:scale-[0.98] transform-gpu"
       style={{
         background: 'rgba(255, 255, 255, 0.025)',
         backdropFilter: 'blur(10px)',

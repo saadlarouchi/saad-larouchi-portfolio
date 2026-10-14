@@ -14,7 +14,7 @@ export function ThemeToggle({ className = '' }: ThemeToggleProps) {
       type="button"
       dir="ltr"
       onClick={toggleTheme}
-      className={`relative inline-flex h-8 w-16 items-center justify-between rounded-full p-[3px] transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 select-none ${className}`}
+      className={`relative inline-block h-8 w-16 rounded-full overflow-hidden transition-colors duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 select-none ${className}`}
       style={{
         backgroundColor: isDark ? '#1f1f23' : '#d5d5d8',
       }}
@@ -24,7 +24,7 @@ export function ThemeToggle({ className = '' }: ThemeToggleProps) {
     >
       {/* Sliding thumb indicator */}
       <motion.div
-        className="absolute top-[3px] left-[3px] h-[26px] w-[26px] rounded-full"
+        className="absolute top-[3px] left-[3px] z-0 h-[26px] w-[26px] rounded-full"
         style={{
           backgroundColor: isDark ? '#2e2e34' : '#ffffff',
           boxShadow: isDark
@@ -35,8 +35,8 @@ export function ThemeToggle({ className = '' }: ThemeToggleProps) {
         transition={{ type: 'spring', stiffness: 500, damping: 35 }}
       />
 
-      {/* Sun Icon (Left) */}
-      <span className="relative z-10 flex h-[26px] w-[26px] items-center justify-center pointer-events-none">
+      {/* Sun Icon (Fixed Left) */}
+      <span className="absolute top-[3px] left-[3px] z-10 flex h-[26px] w-[26px] items-center justify-center pointer-events-none">
         <svg
           width="15"
           height="15"
@@ -60,8 +60,8 @@ export function ThemeToggle({ className = '' }: ThemeToggleProps) {
         </svg>
       </span>
 
-      {/* Moon Icon (Right) */}
-      <span className="relative z-10 flex h-[26px] w-[26px] items-center justify-center pointer-events-none">
+      {/* Moon Icon (Fixed Right) */}
+      <span className="absolute top-[3px] right-[3px] z-10 flex h-[26px] w-[26px] items-center justify-center pointer-events-none">
         <svg
           width="14"
           height="14"

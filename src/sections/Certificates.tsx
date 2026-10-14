@@ -128,7 +128,7 @@ export function Certificates() {
                     href={selectedCert.credential}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 rounded-lg px-4 py-2 text-sm font-medium transition-transform hover:-translate-y-0.5"
+                    className="inline-flex items-center gap-1 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] transform-gpu"
                     style={{ background: 'var(--accent)', color: 'var(--accent-foreground)' }}
                   >
                     {t('certificates.buttons.view_credential')}

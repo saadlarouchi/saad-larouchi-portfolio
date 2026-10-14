@@ -41,7 +41,7 @@ export function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex h-9 w-9 items-center justify-center rounded-lg transition-colors cursor-pointer"
+        className="flex h-9 w-9 items-center justify-center rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 transform-gpu cursor-pointer"
         style={{ color: 'var(--text-secondary)', background: 'var(--bg-tertiary)' }}
         aria-label="Change Language"
       >
@@ -162,7 +162,7 @@ export function Navbar() {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="flex h-9 w-9 items-center justify-center rounded-lg md:hidden cursor-pointer"
+            className="flex h-9 w-9 items-center justify-center rounded-lg transition-all duration-200 hover:scale-105 active:scale-95 transform-gpu md:hidden cursor-pointer"
             style={{ color: 'var(--text-secondary)', background: 'var(--bg-tertiary)' }}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}

@@ -15,11 +15,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variants = {
   primary:
-    'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)] drop-shadow-sm hover:bg-[var(--accent-hover)] hover:shadow-[0_0_20px_var(--accent-bg),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:-translate-y-0.5 active:scale-[0.99]',
+    'bg-[var(--accent)] text-[var(--accent-foreground)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.2)] drop-shadow-sm hover:bg-[var(--accent-hover)] hover:shadow-[0_0_20px_var(--accent-bg),inset_0_1px_1px_rgba(255,255,255,0.2)] hover:scale-[1.02] active:scale-[0.98] transform-gpu',
   secondary:
-    'font-semibold border hover:bg-[var(--bg-tertiary)] hover:shadow-md hover:-translate-y-0.5 active:scale-[0.99]',
+    'font-semibold border hover:bg-[var(--bg-tertiary)] hover:shadow-md hover:scale-[1.02] active:scale-[0.98] transform-gpu',
   ghost:
-    'font-medium hover:bg-[var(--bg-tertiary)] hover:text-[var(--text-primary)]',
+    'font-medium hover:bg-[var(--bg-tertiary)] hover:text-[var(--text-primary)] hover:scale-[1.02] active:scale-[0.98] transform-gpu',
 };
 
 const sizes = {

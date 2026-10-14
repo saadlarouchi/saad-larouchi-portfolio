@@ -10,7 +10,7 @@ export function FilterButton({ isActive, className, children, ...props }: Filter
     <button
       type="button"
       className={cn(
-        'rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 cursor-pointer',
+        'rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 cursor-pointer hover:scale-[1.02] active:scale-[0.98] transform-gpu',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2',
         'disabled:pointer-events-none disabled:opacity-50',
         isActive
