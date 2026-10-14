@@ -112,6 +112,27 @@ export function Navbar() {
   const activeId = useActiveSection(sectionIds);
   const { t } = useTranslation();
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMobileOpen(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <header className="fixed top-0 right-0 left-0 z-50 glass backdrop-blur-2xl transition-all duration-300" style={{ height: 'var(--nav-height)' }}>
       <Container className="flex h-full items-center justify-between">
@@ -188,36 +209,56 @@ export function Navbar() {
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.nav
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 250 }}
-            className="fixed top-[var(--nav-height)] right-0 bottom-0 w-72 p-6 md:hidden"
-            style={{ background: 'var(--bg)', borderInlineStart: '1px solid var(--border)' }}
-            aria-label="Mobile navigation"
-          >
-            <div className="flex flex-col gap-2">
-              {navItems.map((item) => {
-                const id = item.href.replace('#', '');
-                const isActive = activeId === id;
-                return (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="rounded-lg px-4 py-3 text-base font-medium transition-colors"
-                    style={{
-                      color: isActive ? 'var(--accent)' : 'var(--text-primary)',
-                      background: isActive ? 'var(--accent-light)' : 'transparent',
-                    }}
-                  >
-                    {t(`nav.${id}`)}
-                  </a>
-                );
-              })}
-            </div>
-          </motion.nav>
+          <>
+            {/* Backdrop overlay to cleanly obscure/dim the Hero section */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setMobileOpen(false)}
+              className="fixed inset-0 top-[var(--nav-height)] bg-black/60 backdrop-blur-sm z-40 md:hidden"
+              aria-hidden="true"
+            />
+
+            {/* Dedicated Mobile Menu Panel */}
+            <motion.nav
+              initial={{ opacity: 0, y: -16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 250 }}
+              className="fixed top-[var(--nav-height)] inset-x-0 w-full z-50 p-6 md:hidden shadow-2xl border-b overflow-y-auto max-h-[calc(100dvh-var(--nav-height))]"
+              style={{
+                background: 'var(--bg)',
+                borderColor: 'var(--border)',
+              }}
+              aria-label="Mobile navigation"
+            >
+              <div className="flex flex-col gap-2 max-w-md mx-auto">
+                {navItems.map((item) => {
+                  const id = item.href.replace('#', '');
+                  const isActive = activeId === id;
+                  return (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-semibold transition-all duration-200"
+                      style={{
+                        color: isActive ? 'var(--accent)' : 'var(--text-primary)',
+                        background: isActive ? 'var(--accent-light)' : 'transparent',
+                      }}
+                    >
+                      <span>{t(`nav.${id}`)}</span>
+                      {isActive && (
+                        <span className="h-2 w-2 rounded-full bg-[var(--accent)]" />
+                      )}
+                    </a>
+                  );
+                })}
+              </div>
+            </motion.nav>
+          </>
         )}
       </AnimatePresence>
     </header>
