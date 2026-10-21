@@ -8,16 +8,16 @@ export function About() {
   const { t } = useTranslation();
 
   const highlights = [
-    { label: t('about.highlights.expertise'), value: t('about.highlights.expertise_val') },
-    { label: t('about.highlights.location'), value: t('about.highlights.location_val') },
-    { label: t('about.highlights.background'), value: t('about.highlights.background_val') },
-    { label: t('about.highlights.availability'), value: t('about.highlights.availability_val') },
+    { key: 'expertise', label: t('about.highlights.expertise'), value: t('about.highlights.expertise_val') },
+    { key: 'location', label: t('about.highlights.location'), value: t('about.highlights.location_val') },
+    { key: 'background', label: t('about.highlights.background'), value: t('about.highlights.background_val') },
+    { key: 'status', label: t('about.highlights.availability', t('about.highlights.status')), value: t('about.highlights.availability_val', t('about.highlights.status_val')) },
   ];
 
   return (
-    <section id="about" className="relative py-20 md:py-24">
+    <section id="about" className="relative py-20 md:py-24" aria-labelledby="about-heading">
       <Container>
-        <SectionHeader title={t('about.section_title')} badge={t('about.badge')} />
+        <SectionHeader id="about-heading" title={t('about.section_title')} badge={t('about.badge')} />
 
         <motion.div
           variants={staggerContainer}
@@ -52,15 +52,15 @@ export function About() {
           >
             {highlights.map((item) => (
               <div
-                key={item.label}
+                key={item.key}
                 className="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-0.5"
                 style={{ background: 'var(--bg-secondary)', border: '1px solid var(--card-border)', boxShadow: 'var(--card-shadow)' }}
                 onMouseEnter={(e) => (e.currentTarget.style.boxShadow = 'var(--card-shadow-hover)')}
                 onMouseLeave={(e) => (e.currentTarget.style.boxShadow = 'var(--card-shadow)')}
               >
-                <span className="text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--accent)' }}>
+                <h3 className="m-0 text-xs font-bold uppercase tracking-widest" style={{ color: 'var(--accent)' }}>
                   {item.label}
-                </span>
+                </h3>
                 <p className="mt-2 text-base font-medium" style={{ color: 'var(--text-primary)' }}>
                   {item.value}
                 </p>

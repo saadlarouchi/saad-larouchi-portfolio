@@ -29,20 +29,22 @@
   "about": {
     "section_title": "À Propos",
     "badge": "Profil",
-    "p1_start": "Récemment diplômé en ",
-    "p1_strong": "Ingénierie d'Applications Mobiles",
-    "p1_end": " de la CMC.",
-    "p2_start": "Je crée des logiciels intuitifs et performants. Mon approche se concentre sur des architectures propres et scalables avec ",
-    "p2_strong": "Kotlin, Flutter et React.",
+    "p1_start": "Je suis actuellement étudiant en 3e année du cycle d’ingénieur à l’École Marocaine des Sciences de l’Ingénieur, spécialisé en ",
+    "p1_strong": "Ingénierie Informatique et Réseaux",
+    "p1_end": ".",
+    "p2_start": "Je conçois et développe des expériences numériques modernes, avec un intérêt particulier pour une architecture logicielle propre, les performances et l’expérience utilisateur. Je travaille dans le développement web et mobile avec des technologies telles que ",
+    "p2_strong": "React, TypeScript, Tailwind CSS, Kotlin, Android et Laravel.",
     "highlights": {
       "expertise": "Expertise",
-      "expertise_val": "Ingénierie Mobile & Web",
+      "expertise_val": "Développement logiciel & mobile",
       "location": "Localisation",
       "location_val": "Casablanca, Maroc",
       "background": "Formation",
-      "background_val": "Génie Logiciel",
+      "background_val": "Ingénierie Informatique & Réseaux",
       "availability": "Statut",
-      "availability_val": "À l'écoute de nouvelles opportunités"
+      "availability_val": "Disponible pour de nouvelles opportunités",
+      "status": "Statut",
+      "status_val": "Disponible pour de nouvelles opportunités"
     }
   },
   "skills": {

@@ -8,9 +8,10 @@ interface SectionHeaderProps {
   badge?: string;
   className?: string;
   align?: 'left' | 'center';
+  id?: string;
 }
 
-export function SectionHeader({ title, subtitle, badge, className, align = 'center' }: SectionHeaderProps) {
+export function SectionHeader({ title, subtitle, badge, className, align = 'center', id }: SectionHeaderProps) {
   const isCenter = align === 'center';
 
   return (
@@ -27,6 +28,7 @@ export function SectionHeader({ title, subtitle, badge, className, align = 'cent
         </span>
       )}
       <h2
+        id={id}
         className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
         style={{ color: 'var(--text-primary)' }}
       >

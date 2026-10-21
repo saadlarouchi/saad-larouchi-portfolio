@@ -29,20 +29,22 @@
   "about": {
     "section_title": "About Me",
     "badge": "Profile",
-    "p1_start": "I recently graduated in ",
-    "p1_strong": "Mobile Application Engineering",
-    "p1_end": " from CMC.",
-    "p2_start": "I design and build software that feels right. My focus is on creating fluid, scalable products using ",
-    "p2_strong": "Kotlin, Flutter, and React.",
+    "p1_start": "I’m currently a 3rd-year Engineering student at the Moroccan School of Engineering Sciences, specializing in ",
+    "p1_strong": "Computer Science and Networks Engineering",
+    "p1_end": ".",
+    "p2_start": "I design and build modern digital experiences with a focus on clean architecture, performance, and user experience. I work across web and mobile development using technologies such as ",
+    "p2_strong": "React, TypeScript, Tailwind CSS, Kotlin, Android, and Laravel.",
     "highlights": {
       "expertise": "Expertise",
-      "expertise_val": "Mobile & Web Engineering",
+      "expertise_val": "Software & Mobile Development",
       "location": "Location",
       "location_val": "Casablanca, Morocco",
       "background": "Background",
-      "background_val": "Software Engineering",
+      "background_val": "Computer Science & Networks Engineering",
       "availability": "Status",
-      "availability_val": "Available for new opportunities"
+      "availability_val": "Available for new opportunities",
+      "status": "Status",
+      "status_val": "Available for new opportunities"
     }
   },
   "skills": {
