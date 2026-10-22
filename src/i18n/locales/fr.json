@@ -227,16 +227,30 @@
       "planned": "Prévu"
     },
     "items": {
+      "emsi-engineering": {
+        "title": "3e année du cycle d’ingénieur — Ingénierie Informatique et Réseaux",
+        "organization": "École Marocaine des Sciences de l’Ingénieur",
+        "date": "2026 — Présent",
+        "location": "Maroc",
+        "status": "En cours",
+        "description": "Étudiant en 3e année du cycle d'ingénieur spécialisé en Ingénierie Informatique et Réseaux, axé sur une architecture logicielle propre, l'ingénierie des systèmes et les réseaux avancés.",
+        "responsibilities": [
+          "Génie Logiciel & Architecture Propre",
+          "Ingénierie Réseaux & Systèmes Distribués",
+          "Solutions Web Full-Stack & Mobiles Natives"
+        ]
+      },
       "cmc-diploma": {
-        "title": "Génie Logiciel — Mobile",
-        "organization": "Cité des Métiers et des Compétences",
+        "title": "Ingénierie d'Applications Mobiles",
+        "organization": "Cité des Métiers et des Compétences (CMC)",
         "date": "2024 — 2026",
         "location": "Maroc",
-        "description": "Programme d'ingénierie intensif centré sur l'architecture mobile moderne.",
+        "status": "Terminé",
+        "description": "Diplôme de technicien spécialisé en Ingénierie d'Applications Mobiles, centré sur l'architecture mobile moderne.",
         "responsibilities": [
           "Android Natif (Kotlin/Java) & Multiplateforme (Flutter)",
           "Interfaces déclaratives avec Jetpack Compose",
-          "Architecture Cloud avec Firebase & REST",
+          "Architecture Cloud avec Firebase & REST APIs",
           "Bases du développement web moderne"
         ]
       },

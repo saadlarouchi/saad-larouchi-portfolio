@@ -138,9 +138,9 @@ function App() {
       };
 
       const seoDesc: Record<string, string> = {
-        en: 'Portfolio of Saad Larouchi, Mobile and Web Developer based in Morocco. Building native Android apps with Kotlin and cross-platform web applications with React, TypeScript, and Flutter.',
-        fr: 'Portfolio de Saad Larouchi, Développeur Mobile et Web basé au Maroc. Applications Android natives en Kotlin et applications web avec React, TypeScript et Flutter.',
-        ar: 'معرض أعمال سعد العروشي، مطور تطبيقات هواتف ومواقع ويب مقره في المغرب. بناء تطبيقات أندرويد بـ Kotlin وتطبيقات ويب بـ React وTypeScript وFlutter.',
+        en: 'Portfolio of Saad Larouchi, Software and Mobile Developer in Morocco. 3rd-year Engineering Cycle student at Moroccan School of Engineering Sciences (Ingénierie Informatique et Réseaux).',
+        fr: 'Portfolio de Saad Larouchi, Développeur Logiciel et Mobile au Maroc. Étudiant en 3e année du cycle d’ingénieur à l’École Marocaine des Sciences de l’Ingénieur (Ingénierie Informatique et Réseaux).',
+        ar: 'معرض أعمال سعد العروشي، مطور برمجيات وتطبيقات في المغرب. طالب في السنة الثالثة من سلك الهندسة بالمدرسة المغربية لعلوم المهندس (Ingénierie Informatique et Réseaux).',
       };
 
       const homeTitle = seoTitles[i18n.language] || seoTitles.en;

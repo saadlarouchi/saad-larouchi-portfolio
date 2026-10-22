@@ -25,8 +25,9 @@
 - Luxeldo: High-performance e-commerce storefront for Swiss timepieces (HTML, CSS, JavaScript).
 
 ## Education
-- Specialized Technician Diploma in Digital Development (Mobile Applications): Cité des Métiers et des Compétences, Casablanca-Settat, Morocco (2024–2026).
-- Baccalauréat Sciences Physiques: Lycée Ibn Rochd, Berrechid, Morocco (2022–2023).
+- 3rd-year Engineering Cycle in Ingénierie Informatique et Réseaux: École Marocaine des Sciences de l’Ingénieur (Moroccan School of Engineering Sciences), Casablanca, Morocco (2026–Present, In Progress).
+- Specialized Technician Diploma in Mobile Application Engineering: Cité des Métiers et des Compétences (CMC), Casablanca-Settat, Morocco (2024–2026, Completed).
+- Baccalauréat Sciences Physiques: Lycée Ibn Rochd, Berrechid, Morocco (2022–2023, Completed).
 
 ## Certifications
 - Claude Code 101: Anthropic (May 8, 2026)

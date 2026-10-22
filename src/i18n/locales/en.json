@@ -30,7 +30,7 @@
     "section_title": "About Me",
     "badge": "Profile",
     "p1_start": "I’m currently a 3rd-year Engineering student at the Moroccan School of Engineering Sciences, specializing in ",
-    "p1_strong": "Computer Science and Networks Engineering",
+    "p1_strong": "Ingénierie Informatique et Réseaux",
     "p1_end": ".",
     "p2_start": "I design and build modern digital experiences with a focus on clean architecture, performance, and user experience. I work across web and mobile development using technologies such as ",
     "p2_strong": "React, TypeScript, Tailwind CSS, Kotlin, Android, and Laravel.",
@@ -40,7 +40,7 @@
       "location": "Location",
       "location_val": "Casablanca, Morocco",
       "background": "Background",
-      "background_val": "Computer Science & Networks Engineering",
+      "background_val": "Ingénierie Informatique et Réseaux",
       "availability": "Status",
       "availability_val": "Available for new opportunities",
       "status": "Status",
@@ -227,17 +227,31 @@
       "planned": "Planned"
     },
     "items": {
+      "emsi-engineering": {
+        "title": "3rd-year Engineering Cycle — Ingénierie Informatique et Réseaux",
+        "organization": "Moroccan School of Engineering Sciences",
+        "date": "2026 — Present",
+        "location": "Morocco",
+        "status": "In Progress",
+        "description": "3rd-year Engineering Cycle student specializing in Ingénierie Informatique et Réseaux, focused on clean architecture, systems engineering, and advanced networks.",
+        "responsibilities": [
+          "Software Engineering & Clean Architecture",
+          "Networks Engineering & Distributed Systems",
+          "Full-Stack Web & Native Mobile Solutions"
+        ]
+      },
       "cmc-diploma": {
-        "title": "Software Engineering — Mobile",
-        "organization": "Cité des Métiers et des Compétences",
+        "title": "Mobile Application Engineering",
+        "organization": "Cité des Métiers et des Compétences (CMC)",
         "date": "2024 — 2026",
         "location": "Morocco",
-        "description": "Intensive engineering program focused on modern mobile architecture.",
+        "status": "Completed",
+        "description": "Specialized technician diploma in Mobile Application Engineering, focused on modern mobile architecture.",
         "responsibilities": [
           "Native Android (Kotlin/Java) & Cross-platform (Flutter)",
           "Declarative UI with Jetpack Compose",
-          "Cloud architecture with Firebase & REST",
-          "Modern web foundations"
+          "Cloud architecture with Firebase & REST APIs",
+          "Modern web foundations & Git workflows"
         ]
       },
       "zyne-officiel-new": {

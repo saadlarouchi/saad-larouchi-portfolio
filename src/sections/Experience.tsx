@@ -38,9 +38,10 @@ export function Experience() {
   );
 
   return (
-    <section id="experience" className="relative py-20 md:py-24">
+    <section id="experience" className="relative py-20 md:py-24" aria-labelledby="experience-heading">
       <Container>
         <SectionHeader
+          id="experience-heading"
           title={t('experience.section_title')}
           subtitle={t('experience.subtitle')}
           badge={t('experience.badge')}
@@ -117,7 +118,7 @@ export function Experience() {
                         <span className="text-xs font-bold uppercase tracking-widest" style={{ color: dotColor }}>
                           {t(`experience.types.${exp.type}`)}
                         </span>
-                        <Badge variant={badge.variant}>{badge.label}</Badge>
+                        <Badge variant={badge.variant}>{t(`experience.items.${exp.id}.status`, badge.label)}</Badge>
                       </div>
 
                       <h3 className="mb-1 text-xl font-bold tracking-tight" style={{ color: 'var(--text-primary)' }}>

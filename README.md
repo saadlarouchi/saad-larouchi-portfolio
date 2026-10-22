@@ -55,7 +55,7 @@ The portfolio showcases four key engineering projects, each grounded in real-wor
 
 ## 🛠️ Technical Skills
 
-The technologies, frameworks, and tools verified across my portfolio projects, academic development at Cité des Métiers et des Compétences (CMC), and hands-on experience:
+The technologies, frameworks, and tools verified across my portfolio projects, academic development at École Marocaine des Sciences de l’Ingénieur and Cité des Métiers et des Compétences (CMC), and hands-on experience:
 
 * **Mobile Engineering:** Kotlin, Jetpack Compose, Android SDK, Java, Flutter, Dart
 * **Frontend & Web Development:** React 19, TypeScript, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, Next.js
